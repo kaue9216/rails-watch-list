@@ -1,11 +1,16 @@
-<h1>implementar o index de list</h1>
-<%# <% @bookmarks.each do |bookmark| %>
-<%# <%= bookmark.list_id %>
-<%# <% end %>
-<% @l_arrays.each do |array| %>
-<p><%= array.name %></p>
+<div class="container">
+<h1 id="title"><strong>Movie Lister</strong></h1>
+<% @lists.each do |list| %>
+<div class="card-product">
+  <div class="card-product-infos">
+    <h1>
+      <%= link_to list.name, list_path(list)  %>
+      <%= button_to "Delete List", list_path(list),  class: "btn", method: :delete, data: { confirm: "olá mundo" } %>
+    </h1>
+  </div>
+ </div>
 <% end %>
-
-<% @m_arrays.each do |array| %>
-<p><%= array.title %></p>
-<% end %>
+  <div>
+    <p class="btn btn-dark btn-kaue" ><%= link_to "Create new List", new_list_path %></p>
+  </div>
+</div>

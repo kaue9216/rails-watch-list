@@ -1,12 +1,10 @@
 <div class="container">
-<h1>Add new comment</h1>
-<%= simple_form_for [@list, @bookmark] do |f| %>
+<h1>Add new List</h1>
+<%= simple_form_for [@list] do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <%# <%= f.input :comment %>
-  <%= f.association :movie %>
-<%= f.button :submit, class: "btn btn-dark btn-kaue" %>
-
+  <%= f.input :name %>
+  <%= f.button :submit, class: "btn btn-dark btn-kaue" %>
 <% end %>
 <p class="btn btn-dark btn-kaue" ><%= link_to "Home", lists_path %></p>
 </div>

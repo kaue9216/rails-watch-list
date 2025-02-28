@@ -10,11 +10,17 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.list = @list
     if @bookmark.save
-      redirect_to lists_path(@list)
+      redirect_to list_path(@list)
     else
       # TODO melhorar esse else (colocar um aviso de erro)
-      redirect_to new_list_bookmark_path(@list)
+      render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @bookmark = Bookmark.find(params[:bookmark_id])
+    @bookmark.destroy
+    redirect_to lists_path, status: :see_other
   end
 
   private

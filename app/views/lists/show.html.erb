@@ -1,0 +1,22 @@
+<div class="container">
+<h1><%= link_to @lists.name, lists_path %></h1>
+  <% @l_array.each do |movie| %>
+  <div class="card-product">
+    <img src="<%= movie.poster_url %>">
+
+    <div class="card-product-infos">
+
+      <h1><%= movie.title %></h1>
+
+      <p><%= movie.overview %></p>
+      <%= button_to "Delete Movie", bookmark_path, class: "btn", method: :delete, data: { confirm: "olá mundo" }, params: { bookmark_id: @bookmark } %>
+    </div>
+  </div>
+
+  <% end %>
+
+
+<p class="btn btn-dark btn-kaue" ><%= link_to "Add moovie", new_list_bookmark_path(@lists) %></p>
+<p class="btn btn-dark btn-kaue" ><%= link_to "Edit list name", edit_list_path(@lists) %></p>
+<p class="btn btn-dark btn-kaue" ><%= link_to "Back", lists_path %></p>
+</div>
